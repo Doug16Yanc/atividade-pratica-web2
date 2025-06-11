@@ -1,62 +1,153 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Participantes - Eventos Teatrais</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-    <title>Eventos</title>
+    <link rel="stylesheet" href="alert.css">
 </head>
 <body>
-    <header>
-      <nav>
-        <img src="assets/images/icon.png" alt="Logo do evento" width="200" />
-      </nav>
-    </header>
-  
-    <section class="banner">
 
-        <div class="container-banner">
-            <div class="cards-area" id="cardsArea">
-                <div class="card">
-                    <h2>Em cartaz</h2>
-                    <h3>O Doente Imaginário</h3>
-                    <p>
-                        Embarque nesta comédia de Moliére sobre Argã, um homem obcecado por
-                        doenças e que vive cercado por médicos vigaristas e trapaceiros, veja
-                        o quão longe alguém vai por medo e ilusão, o que cria situações 
-                        favoráveis para canalhas.
-                    </p>
-                </div>
-                <div class="card">
-                    <h2>Próximo em cartaz</h2>
-                    <h3>O Pagador de Promessas</h3>
-                    <p>
-                        Acompanhe a trajetória de Zé do Burro, personagem de Dias Gomes, que 
-                        faz uma promessa de carregar uma cruz pesada até uma igreja para salvar
-                        seu burro doente, lidando com o estigma da fé institucionalizada e da 
-                        hipocrisia social.
-                    </p>
-                </div>
-                <div class="card">
-                    <h2>Para os VIPs</h2>
-                    <h3>Esperando Godot</h3>
-                    <p> 
-                        Neste clássico de Samuel Beckett, dois vagabundos, Vladimir e Estragon, 
-                        esperam por um tal "Godot" que nunca chega, enquanto o esperam, mergulham
-                        em diálogos absurdos sobre questões existenciais, tédio e esperança.
-                    </p>
+<div id="custom-alert" class="alert-overlay">
+    <div class="alert-box">
+        <p id="alert-message">Seja bem-vindo(a) ao nosso site</p>
+        <button id="alert-ok">Continuar</button>
+    </div>
+</div>
+
+<header>
+    <nav>
+        <img class="logo" src="assets/images/icon.png" alt="Logo do evento" />
+    </nav>
+</header>
+
+<section class="banner">
+    <div class="banner-content">
+        <div class="initial-container">
+            <h1>Eventos teatrais</h1>
+            <p>
+                Descubra os melhores eventos teatrais da cidade! Desde clássicos atemporais
+                até produções contemporâneas inovadoras
+            </p>
+            <a href="#form">
+                <button id="alert-button">Cadastre sua presença</button>
+            </a>
+        </div>
+    </div>
+</section>
+
+<div class="container-banner">
+    <div class="cards-area" id="cardsArea">
+        <div class="card">
+            <h2>Em cartaz</h2>
+            <h3>O Doente Imaginário</h3>
+            <p>
+                Embarque nesta comédia de Moliére sobre Argã, um homem obcecado por
+                doenças e que vive cercado por médicos vigaristas e trapaceiros, veja
+                o quão longe alguém vai por medo e ilusão, o que cria situações
+                favoráveis para canalhas.
+            </p>
+        </div>
+        <div class="card">
+            <h2>Próximo em cartaz</h2>
+            <h3>O Pagador de Promessas</h3>
+            <p>
+                Acompanhe a trajetória de Zé do Burro, personagem de Dias Gomes, que
+                faz uma promessa de carregar uma cruz pesada até uma igreja para salvar
+                seu burro doente, lidando com o estigma da fé institucionalizada e da
+                hipocrisia social.
+            </p>
+        </div>
+        <div class="card">
+            <h2>Para os VIPs</h2>
+            <h3>Esperando Godot</h3>
+            <p>
+                Neste clássico de Samuel Beckett, dois vagabundos, Vladimir e Estragon,
+                esperam por um tal "Godot" que nunca chega, enquanto o esperam, mergulham
+                em diálogos absurdos sobre questões existenciais, tédio e esperança.
+            </p>
+        </div>
+    </div>
+</div>
+
+<section class="bg2"></section>
+
+<section id="form" class="form-section">
+    <div class="form-container">
+        <h2>Cadastro de Participante</h2>
+        <form id="cadastro-form">
+            <div class="form-group">
+                <label for="nome">Nome <span class="required">*</span></label>
+                <input type="text" id="nome" name="nome" required placeholder="Digite seu nome completo">
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-mail <span class="required">*</span></label>
+                <input type="email" id="email" name="email" required placeholder="seu.email@exemplo.com">
+            </div>
+
+            <div class="form-group">
+                <label>Presença confirmada</label>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="presenca" name="presenca">
+                    <label for="presenca">Confirmo minha presença no evento</label>
                 </div>
             </div>
-             <div class="form-area" id="formArea">
-                <h2>
-                    Formulário
-                </h2>
-             </div>
-          </div>
 
-    </section>
+            <div class="form-group">
+                <label for="tipo-ingresso">Tipo de ingresso <span class="required">*</span></label>
+                <select id="tipo-ingresso" name="tipo-ingresso" required>
+                    <option value="" disabled selected>Selecione o tipo de ingresso</option>
+                    <option value="Padrao">Padrão</option>
+                    <option value="VIP">VIP</option>
+                    <option value="Convidado">Convidado</option>
+                </select>
+            </div>
 
-  </body>
-  
-</html> 
+            <div class="form-group">
+                <label>Comunicações</label>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="novidades" name="novidades">
+                    <label for="novidades">Desejo receber novidades do evento</label>
+                </div>
+                <div id="topics-container" class="hidden">
+                    <div class="topics-title">Qual assunto te interessa?</div>
+                    <div class="topics-group">
+                        <div class="topic-option">
+                            <input type="checkbox" id="topic-promo" name="topics" value="Promoções">
+                            <label for="topic-promo">Promoções</label>
+                        </div>
+                        <div class="topic-option">
+                            <input type="checkbox" id="topic-event" name="topics" value="Novos Eventos">
+                            <label for="topic-event">Novos Eventos</label>
+                        </div>
+                        <div class="topic-option">
+                            <input type="checkbox" id="topic-back" name="topics" value="Backstage">
+                            <label for="topic-back">Backstage</label>
+                        </div>
+                        <div class="topic-option">
+                            <input type="checkbox" id="topic-artist" name="topics" value="Artistas">
+                            <label for="topic-artist">Artistas</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="form-submit">Cadastrar Participante</button>
+        </form>
+    </div>
+</section>
+
+<div class="participants-container">
+    <div class="participants-list">
+        <h2 class="section-title">Participantes Cadastrados</h2>
+        <div id="participants-container"></div>
+    </div>
+</div>
+
+</body>
+<script src="script.js"></script>
+<script src="alert.js"></script>
+</html>
