@@ -1,7 +1,7 @@
 const showChengeThemeBtn = () => {
     const nav = document.querySelector('nav');
     const themeToggle = document.createElement('img');
-    themeToggle.src = '/assets/images/light-theme.png';
+    themeToggle.src = './assets/images/light-theme.png';
     themeToggle.width = 24;
     themeToggle.height = 24;
     themeToggle.alt = 'Mudar Tema';
@@ -53,9 +53,9 @@ const toggleTheme = () => {
     });
 
     if (isLightTheme) {
-        themeToggle.src = '/assets/images/light-theme.png';
+        themeToggle.src = './assets/images/light-theme.png';
     } else {
-        themeToggle.src = '/assets/images/dark-theme.png';
+        themeToggle.src = './assets/images/dark-theme.png';
     }
 
     localStorage.setItem('theme', isLightTheme ? 'dark' : 'light');
