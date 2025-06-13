@@ -25,8 +25,7 @@ html {
     --vip-color: #FFD700;
     --guest-color: #C0C0C0;
 }
-#dateTime {
-    margin-bottom: 1rem;
+#greeting {
     font-size: 1.2rem;
     color: var(--color-1);
 }
@@ -59,7 +58,6 @@ body {
 
 .logo{
     width: 15dvh;
-    margin-bottom: 2dvh;
 }
 
 header {
@@ -86,7 +84,8 @@ nav {
 header nav {
     width: 90%;
     max-width: 1200px;
-    margin: 20px auto auto;
+;
+    margin-bottom: 2dvh;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -124,8 +123,7 @@ body::after {
     height: 100%;
     padding-bottom: 20px;
     align-items: center;
-    margin: auto;
-    margin-top: -15dvh;
+    margin: -15dvh auto auto;
     flex-wrap: wrap;
     width: 90%;
     max-width: 1200px;
@@ -222,7 +220,7 @@ button:hover {
 }
 
 .bg2 {
-    background: linear-gradient(var(--color-6), rgba(0, 0, 0, 0.2), var(--color-6), var(--color-6)), url("assets/images/fundo.png") no-repeat top center/cover;
+    background: linear-gradient(var(--color-6), rgba(0, 0, 0, 0.5), var(--color-6), var(--color-6)), url("assets/images/fundo.png") no-repeat top center/cover;
     background-attachment: fixed;
     min-height: 80dvh;
     display: flex;
@@ -505,6 +503,13 @@ button:hover {
     font-size: 0.8rem;
     color: #ff8903;
 }
+
+@media (max-width: 1433px) and (max-height: 884px) {
+    .container-banner {
+        height: 80dvh;
+    }
+}
+
 @media (max-width: 883px) {
 
     .container-banner {
@@ -514,7 +519,7 @@ button:hover {
 }
 
 @media (max-width: 768px) {
-    #dateTime {
+    #greeting {
         font-size: 0.9rem;
     }
 
@@ -555,7 +560,7 @@ button:hover {
 }
 
 @media (max-width: 320px) {
-    #dateTime {
+    #greeting {
         font-size: 1rem;
     }
 
