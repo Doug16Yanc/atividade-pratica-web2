@@ -16,43 +16,40 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-function getCurrentDateTime() {
+function getGreeting() {
     const now = new Date();
-    return now.toLocaleString(
-        'pt-BR',
-        {
-            year: 'numeric',
-            month: '2-digit',
-            day: '2-digit',
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit',
-            hour12: false,
-            timeZone: 'America/Sao_Paulo'
-        }
-    ); 
+    const hour = now.toLocaleString('pt-BR', {
+        hour:   '2-digit',
+        hour12: false,
+        timeZone: 'America/Sao_Paulo'
+    });
+    const h = parseInt(hour, 10);
+
+    if (h >= 5 && h < 12) {
+        return 'Bom dia, usuário! ☀️';
+    } else if (h >= 12 && h < 18) {
+        return 'Boa tarde, usuário! 🌤️';
+    } else {
+        return 'Boa noite, usuário! 🌙';
+    }
 }
 
-function showDateTime() {
+
+function showGreeting() {
     const banner = document.querySelector('nav');
-    const dateTimeElem = document.createElement('div');
-    dateTimeElem.id = 'dateTime';
-
-    dateTimeElem.textContent = `${getCurrentDateTime()}`;
-    banner.appendChild(dateTimeElem);
+    const msgElem = document.createElement('div');
+    msgElem.id = 'greeting';
+    msgElem.style.margin = '1rem 0';
+    msgElem.style.fontSize = '1.2rem';
+    msgElem.textContent = getGreeting();
+    banner.appendChild(msgElem);
 }
 
-setInterval(
-    () => {
-        const banner = document.querySelector('nav');
-        const dateTimeElem = document.getElementById('dateTime');
-        if (dateTimeElem) {
-            dateTimeElem.remove();
-        }
-        showDateTime()
-    }, 
-    1000
-);
+setInterval(() => {
+    const old = document.getElementById('greeting');
+    if (old) old.remove();
+    showGreeting();
+}, 1000);
 
 document.addEventListener('DOMContentLoaded', () => {
     const banner = document.querySelector('.banner');
