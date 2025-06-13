@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="alert.css">
 </head>
-<body>
+<body class="body">
 
 <div id="custom-alert" class="alert-overlay">
     <div class="alert-box">
@@ -20,6 +20,7 @@
 <header>
     <nav>
         <img class="logo" src="assets/images/icon.png" alt="Logo do evento" />
+        <div class="user-message">Olá usuário!</div>
     </nav>
 </header>
 
@@ -98,7 +99,7 @@
 
             <div class="form-group">
                 <label for="tipo-ingresso">Tipo de ingresso <span class="required">*</span></label>
-                <select id="tipo-ingresso" name="tipo-ingresso" required>
+                <select id="tipo-ingresso" class="tipo-ingresso" name="tipo-ingresso" required>
                     <option value="" disabled selected>Selecione o tipo de ingresso</option>
                     <option value="Padrao">Padrão</option>
                     <option value="VIP">VIP</option>

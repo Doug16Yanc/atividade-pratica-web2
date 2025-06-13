@@ -26,6 +26,11 @@
     animation: slideDown 0.3s ease-out;
 }
 
+.light-alert-box {
+    background: var(--color-1);
+    color: var(--color-2);
+}
+
 .alert-box button {
     margin-top: 1rem;
     padding: 0.6rem 2rem;
