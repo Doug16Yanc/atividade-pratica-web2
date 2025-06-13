@@ -25,20 +25,30 @@ html {
     --vip-color: #FFD700;
     --guest-color: #C0C0C0;
 }
-#greeting {
+
+.greeting {
     font-size: 1.2rem;
     color: var(--color-1);
+}
+
+.light-greeting {
+    color: var(--color-2);
 }
 
 #form {
     scroll-margin-top: 30dvh;
 }
 
-body {
+.body {
     color: white;
     background-color: var(--color-6);
     margin: 0;
     min-height: 90dvh;
+}
+
+.light-body {
+    background-color: var(--color-1);
+    color: var(--color-2);
 }
 
 .banner {
@@ -48,6 +58,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.light-banner {
+    background: url("assets/images/bg.avif") no-repeat center center/cover;
 }
 
 .banner {
@@ -61,6 +75,8 @@ body {
 }
 
 header {
+    display: flex;
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
@@ -72,23 +88,20 @@ header {
     border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
-nav {
+.light-header {
+    background-color: var(--color-1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+header nav {
+    width: 90%;
+    max-width: 1200px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: 0 auto;
     flex-direction: row;
     flex-wrap: wrap;
-}
-
-header nav {
-    width: 90%;
-    max-width: 1200px;
-;
-    margin-bottom: 2dvh;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .banner {
@@ -107,6 +120,10 @@ header nav {
     height: 25dvh;
     position: relative;
     z-index: 2;
+}
+
+.light-container-banner {
+    background-color: var(--color-1);
 }
 
 body::after {
@@ -141,6 +158,12 @@ body::after {
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
+.light-card {
+    background: var(--color-1);
+    border: 1px solid rgba(0, 0, 0, 0.24);
+    color: var(--color-2);
+}
+
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
@@ -153,11 +176,19 @@ body::after {
     color: var(--color-5);
 }
 
+.light-card h2 {
+    color: var(--color-2);
+}
+
 .card h3 {
     padding: 1rem;
     font-size: 1.3rem;
     font-weight: 500;
     color: var(--color-1);
+}
+
+.light-card h3 {
+    color: var(--color-2);
 }
 
 .card p {
@@ -167,11 +198,20 @@ body::after {
     color: var(--color-1);
 }
 
+.light-card p {
+    color: var(--color-2);
+}
+
 .initial-container {
     width: fit-content;
     background: rgba(0, 0, 0, 0.65);
     padding: 2dvh;
     border-radius: 1rem;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.447);
+}
+
+.light-initial-container {
+    background: rgba(255, 255, 255, 0.65);
 }
 
 .initial-container h1 {
@@ -190,7 +230,24 @@ body::after {
     color: var(--color-1);
     text-align: start;
     margin-bottom: 20px;
+    max-width: 50dvh;
+}
+
+.light-initial-container h1 {
+    color: var(--color-2);
+}
+
+.light-initial-container p {
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--color-1);
+    text-align: start;
+    margin-bottom: 20px;
     max-width: 50dvh;;
+}
+
+.light-initial-container p {
+    color: var(--color-2);
 }
 
 .banner-content {
@@ -231,6 +288,11 @@ button:hover {
     z-index: 1;
 }
 
+.light-bg2 {
+    background: linear-gradient(var(--color-6), rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)), url("assets/images/fundo.png") no-repeat top center/cover;
+    background-attachment: fixed;
+}
+
 .form-section {
     padding: 4rem 2rem;
     background-color: var(--color-6);
@@ -238,6 +300,10 @@ button:hover {
     justify-content: center;
     z-index: 10;
     position: relative;
+}
+
+.light-section {
+    background-color: var(--color-1);
 }
 
 .form-container {
@@ -252,12 +318,22 @@ button:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.447);
 }
 
+.light-form-container {
+    background: var(--color-1);
+    border: 1px solid rgba(0, 0, 0, 0.24);
+    color: var(--color-2);
+}
+
 .form-container h2 {
     font-size: 1.7rem;
     font-weight: 600;
     color: var(--color-5);
     margin-bottom: 1.5rem;
     text-align: center;
+}
+
+.light-form-container h2 {
+    color: var(--color-2);
 }
 
 .form-group {
@@ -279,6 +355,13 @@ button:hover {
     background-color: rgba(0, 0, 0, 0.3);
     color: white;
     font-family: 'Poppins', sans-serif;
+}
+
+.light-form-group input,
+.light-form-group select {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: var(--color-2);
+    border: 1px solid rgba(0, 0, 0, 0.24);
 }
 
 .form-group input:focus,
@@ -328,6 +411,10 @@ button:hover {
     justify-content: center;
 }
 
+.light-participants-container {
+    background-color: var(--color-1);
+}
+
 .participants-list {
     width: 100%;
     max-width: 800px;
@@ -347,6 +434,12 @@ button:hover {
     justify-content: space-between;
     align-items: center;
     transition: all 0.3s ease;
+}
+
+.light-participant-card {
+    background: var(--color-1);
+    border: 1px solid rgba(0, 0, 0, 0.24);
+    color: var(--color-2);
 }
 
 .participant-card.vip {
@@ -369,7 +462,7 @@ button:hover {
 
 .participant-email {
     margin-bottom: 0.5rem;
-    color: #ccc;
+    color: #656565;
 }
 
 .participant-details {
@@ -392,10 +485,11 @@ button:hover {
     border-radius: 4px;
     height: 2.8dvh;
     font-size: 0.8rem;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .ticket-type.vip {
-    background: rgba(255, 215, 0, 0.15);
+    background: rgb(159, 134, 24);
     color: var(--vip-color);
 }
 
@@ -453,7 +547,7 @@ button:hover {
     margin-left: 1dvh;
     margin-top: 0.9dvh;
     font-size: 0.9rem;
-    color: #fff;
+    color: #aaa;
 }
 
 .topics-title {
@@ -484,9 +578,13 @@ button:hover {
     color: #f44336;
 }
 
-#tipo-ingresso option {
+.tipo-ingresso option {
     background: var(--color-6);
     color: white;
+}
+.light-tipo-ingresso option {
+    background: var(--color-1);
+    color: var(--color-2);
 }
 
 .topics-list {
@@ -519,7 +617,7 @@ button:hover {
 }
 
 @media (max-width: 768px) {
-    #greeting {
+    .greeting {
         font-size: 0.9rem;
     }
 
@@ -558,12 +656,13 @@ button:hover {
     }
 
 }
+@media (max-width: 420px) {
+    .greeting {
+        display: none;
+    }
+}
 
 @media (max-width: 320px) {
-    #greeting {
-        font-size: 1rem;
-    }
-
     .logo {
         width: 12dvh;
     }
