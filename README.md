@@ -32,6 +32,14 @@ O sistema usa cores simples e contrastantes, como preto suave para fundo, a fim 
 
 </p>
 
+<h1 align="center" width="100%"> Deploy do sistema </h1>
+
+<p align-"center">
+
+[TheatFlix GitHub Pages](https://doug16yanc.github.io/atividade-pratica-web2/)
+
+</p>
+
 <h1 align="center"> Autores </h1>
 
 <p>
