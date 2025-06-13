@@ -1,3 +1,67 @@
+const showChengeThemeBtn = () => {
+    const nav = document.querySelector('nav');
+    const themeToggle = document.createElement('img');
+    themeToggle.src = '/assets/images/light-theme.svg';
+    themeToggle.width = 24;
+    themeToggle.height = 24;
+    themeToggle.alt = 'Mudar Tema';
+    themeToggle.classList.add('theme-toggle');
+    themeToggle.style.cursor = 'pointer';
+    themeToggle.id = 'theme-toggle';
+    nav.appendChild(
+        themeToggle
+    )
+
+    return themeToggle;
+};
+
+const toggleTheme = () => {
+    const body = document.body;
+    const isLightTheme = body.classList.contains('light-theme');
+    const themeToggle = document.getElementById('theme-toggle');
+
+    body.classList.toggle('light-theme');
+
+    const elementsToToggle = [
+        { selector: '.banner', lightClass: 'light-banner' },
+        { selector: '.greeting', lightClass: 'light-greeting' },
+        { selector: 'header', lightClass: 'light-header' },
+        { selector: '.container-banner', lightClass: 'light-container-banner' },
+        { selector: '.card', lightClass: 'light-card' },
+        { selector: '.initial-container', lightClass: 'light-initial-container' },
+        { selector: '.form-section', lightClass: 'light-section' },
+        { selector: '.form-container', lightClass: 'light-form-container' },
+        { selector: '.participants-container', lightClass: 'light-participants-container' },
+        { selector: '.participant-card', lightClass: 'light-participant-card' },
+        { selector: '.form-group', lightClass: 'light-form-group' },
+        { selector: '.bg2', lightClass: 'light-bg2' },
+        { selector: '.alert-box', lightClass: 'light-alert-box' },
+        { selector: '.tipo-ingresso', lightClass: 'light-tipo-ingresso' },
+        { selector: '.body', lightClass: 'light-body' }
+    ];
+
+    elementsToToggle.forEach(item => {
+        const elements = document.querySelectorAll(item.selector);
+        elements.forEach(el => {
+            el.style.transition = 'background-color 1000ms, color 1000ms';
+            if (isLightTheme) {
+                el.classList.remove(item.lightClass);
+            } else {
+                el.classList.add(item.lightClass);
+            }
+        });
+    });
+
+    if (isLightTheme) {
+        themeToggle.src = '/assets/images/light-theme.svg';
+    } else {
+        themeToggle.src = '/assets/images/dark-theme.svg';
+        
+    }
+    localStorage.setItem('theme', isLightTheme ? 'dark' : 'light');
+};
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const formLink = document.querySelector('a[href="#form"]');
 
@@ -34,10 +98,15 @@ function getGreeting() {
     }
 }
 
-
 function showGreeting() {
-    const banner = document.querySelector('nav');
+    const body = document.body;
+    const isLightTheme = body.classList.contains('light-theme');
+    
+    const banner = document.querySelector('.user-message');
+    banner.textContent = '';
     const msgElem = document.createElement('div');
+    msgElem.classList.add('greeting');
+    if (isLightTheme) msgElem.classList.add('light-greeting');
     msgElem.id = 'greeting';
     msgElem.style.margin = '1rem 0';
     msgElem.style.fontSize = '1.2rem';
@@ -49,7 +118,19 @@ setInterval(() => {
     const old = document.getElementById('greeting');
     if (old) old.remove();
     showGreeting();
-}, 1000);
+}, 10);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = showChengeThemeBtn();
+    themeToggle.addEventListener('click', toggleTheme);
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        document.body.classList.add('light-theme');
+        toggleTheme();
+    }
+});
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const banner = document.querySelector('.banner');
@@ -130,8 +211,12 @@ function renderParticipants() {
     }
 
     participants.forEach(participant => {
+
+        const body = document.body;
+        const isLightTheme = body.classList.contains('light-theme');
         const card = document.createElement('div');
         card.className = `participant-card ${participant.tipoIngresso.toLowerCase()}`;
+        card.classList.add(isLightTheme ? 'light-participant-card' : 'participant-card');
         
         const presenceClass = participant.presenca ? 'presence-confirmed' : 'presence-not-confirmed';
         const presenceIcon = participant.presenca ? 'fa-check-circle' : 'fa-times-circle';
