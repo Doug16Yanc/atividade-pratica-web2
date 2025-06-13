@@ -56,8 +56,7 @@ const toggleTheme = () => {
         themeToggle.src = '/assets/images/light-theme.png';
     } else {
         themeToggle.src = '/assets/images/dark-theme.png';
-        
-    }
+
     localStorage.setItem('theme', isLightTheme ? 'dark' : 'light');
 };
 
